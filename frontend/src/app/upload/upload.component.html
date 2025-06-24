@@ -1,0 +1,108 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<div class="max-w-3xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+  <!-- Page Heading -->
+  <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Enter Your Job Details</h1>
+
+  <!-- Job Details Section -->
+  <div class="mb-8">
+    <!-- Job Title -->
+    <div class="mb-6">
+      <label class="block mb-2 text-sm font-medium text-gray-700">Job Title</label>
+      <input 
+        [(ngModel)]="jobTitle" 
+        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors" 
+        placeholder="e.g. Frontend Developer" 
+      />
+    </div>
+
+    <!-- Job Description -->
+    <div class="mb-6">
+      <label class="block mb-2 text-sm font-medium text-gray-700">Job Description</label>
+      <textarea 
+        [(ngModel)]="jobDescription" 
+        rows="6" 
+        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors resize-none" 
+        placeholder="Paste the job description here..."
+      ></textarea>
+    </div>
+  </div>
+
+  <!-- File Upload Section -->
+  <div class="mb-8">
+    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Upload Your Resume</h2>
+    <p class="text-sm text-green-600 mb-6">Drag and drop your resume here, or browse to upload. We support PDF, DOC, and DOCX formats.</p>
+    
+    <!-- Drag & Drop Area -->
+    <div 
+      class="border-2 border-dashed border-green-300 rounded-lg p-8 text-center transition-colors"
+      [class.border-green-500]="isDragOver"
+      [class.bg-green-50]="isDragOver"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+      (click)="fileInput.click()"
+    >
+      <div class="space-y-4">
+        <svg class="w-12 h-12 text-green-400 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+        </svg>
+        <div>
+          <p class="text-lg font-medium text-gray-700 mb-2">Drag and drop your resume here</p>
+          <p class="text-gray-500 mb-4">Or click to browse</p>
+          <button 
+            type="button"
+            class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors"
+            (click)="$event.stopPropagation(); fileInput.click()"
+          >
+            Browse Files
+          </button>
+        </div>
+      </div>
+      
+      <!-- Hidden file input -->
+      <input 
+        #fileInput
+        type="file" 
+        (change)="handleFileInput($event)" 
+        accept=".pdf,.doc,.docx" 
+        class="hidden"
+      />
+    </div>
+
+    <!-- Selected file display -->
+    <div *ngIf="resumeFile" class="mt-4 p-4 bg-green-50 border border-green-200 rounded-lg">
+      <div class="flex items-center space-x-3">
+        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+        </svg>
+        <div class="flex-1">
+          <p class="text-sm font-medium text-gray-900">{{ resumeFile.name }}</p>
+          <p class="text-xs text-gray-500">{{ (resumeFile.size / 1024 / 1024).toFixed(2) }} MB</p>
+        </div>
+        <button 
+          (click)="removeFile()"
+          class="text-red-500 hover:text-red-700 transition-colors"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Analyze Button -->
+  <div class="text-center">
+    <button 
+      class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors shadow-lg hover:shadow-xl"
+      (click)="analyzeResume()"
+      [disabled]="!isFormValid()"
+      [class.opacity-50]="!isFormValid()"
+      [class.cursor-not-allowed]="!isFormValid()"
+    >
+      Analyze Resume
+    </button>
+  </div>
+</div>

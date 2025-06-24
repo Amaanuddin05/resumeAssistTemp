@@ -1,0 +1,4 @@
+server/venv/
+server/.env
+server/node_modules
+server/nodemon.json

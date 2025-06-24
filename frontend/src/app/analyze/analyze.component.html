@@ -1,0 +1,71 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+
+<div class="max-w-6xl mx-auto px-4 py-10">
+  <div class="flex flex-col md:flex-row gap-8">
+    <!-- Resume Scoring Panel -->
+    <section class="flex-1 bg-white shadow rounded p-6">
+      <h2 class="text-lg font-semibold mb-6">Resume Scoring</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- ATS Score Card -->
+        <div class="bg-white rounded shadow p-4 flex flex-col items-center border-t-4 border-green-500">
+          <div class="mb-2">
+            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"></path>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold text-gray-800">{{ atsScore }}%</div>
+          <div class="text-gray-500 mt-1">ATS Score</div>
+        </div>
+        <!-- Keyword Match Card -->
+        <div class="bg-white rounded shadow p-4 flex flex-col items-center border-t-4 border-green-500">
+          <div class="mb-2">
+            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+          </div>
+          <div class="text-3xl font-bold text-gray-800">{{ keywordMatch }}%</div>
+          <div class="text-gray-500 mt-1">Keyword Match</div>
+        </div>
+        <!-- Readability Card -->
+        <div class="bg-white rounded shadow p-4 flex flex-col items-center border-t-4 border-green-500">
+          <div class="mb-2">
+            <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m0 0H3"></path>
+            </svg>
+          </div>
+          <div class="text-2xl font-bold text-gray-800">{{ readability }}</div>
+          <div class="text-gray-500 mt-1">Readability</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GenAI Suggestions Panel -->
+    <section class="flex-1 bg-gray-50 shadow rounded p-6">
+      <h2 class="text-lg font-semibold mb-6">AI Suggestions to Improve Your Resume</h2>
+      <!-- Summary Suggestions -->
+      <div class="mb-6">
+        <h3 class="text-base font-semibold mb-2">Summary</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li *ngFor="let suggestion of suggestions.summary">{{ suggestion }}</li>
+        </ul>
+      </div>
+      <!-- Experience Suggestions -->
+      <div>
+        <h3 class="text-base font-semibold mb-2">Experience</h3>
+        <ul class="list-disc list-inside space-y-1">
+          <li *ngFor="let suggestion of suggestions.experience">{{ suggestion }}</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <!-- Navigation Buttons -->
+  <div class="flex flex-col md:flex-row gap-4 justify-center mt-10">
+    <a routerLink="/report" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold text-center shadow-lg hover:shadow-xl transition-colors">View Report Summary</a>
+    <a routerLink="/upload" class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-8 py-3 rounded-lg text-lg font-semibold text-center shadow transition-colors">Back to Upload</a>
+  </div>
+</div>
