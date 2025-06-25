@@ -3,25 +3,25 @@
     "keyword_match": 57,
     "readability": "Average",
     "resume_skills": [
-        "experienced software engineer",
-        "machine learning",
         "python",
+        "machine learning",
+        "skills",
         "natural language processing",
-        "skills"
+        "experienced software engineer"
     ],
     "jd_skills": [
         "experience",
-        "we",
         "machine learning",
-        "natural language processing",
+        "angular knowledge",
+        "we",
         "a bonus",
         "a python developer",
-        "deployment",
-        "angular knowledge"
+        "natural language processing",
+        "deployment"
     ],
     "matched_skills": [
-        "machine learning",
-        "natural language processing"
+        "natural language processing",
+        "machine learning"
     ],
     "skill_match_score": 25
 }
