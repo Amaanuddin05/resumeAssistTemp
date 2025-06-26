@@ -7,11 +7,46 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from nltk import download
+from spacy.matcher import PhraseMatcher
 
 download('stopwords')
 
 nlp = spacy.load("en_core_web_sm")
 stop_words = set(stopwords.words("english"))
+
+COMMON_SKILLS = {
+    'angular', 'tailwind css', 'bootstrap', 'html5', 'css3',
+    'javascript', 'node.js', 'express.js', 'mongodb', 'mysql',
+    'jwt authentication', 'restful apis', 'firebase', 'pwa',
+    'python', 'java', 'c', 'git', 'ui/ux', 'postman'
+}
+
+def extract_skills(text, custom_skill_list=None):
+    doc = nlp(text.lower())
+    chunks = set([chunk.text.strip() for chunk in doc.noun_chunks])
+    entities = set([ent.text.strip() for ent in doc.ents])
+    raw_skills = chunks.union(entities)
+
+    cleaned_skills = set()
+    for phrase in raw_skills:
+        if len(phrase) < 2 or phrase in {"i", "projects", "a focus", "the system"}:
+            continue
+        if not re.search(r'[a-zA-Z]', phrase):
+            continue
+        if len(phrase.split()) > 6:
+            continue
+        cleaned_skills.add(phrase)
+
+    # Optional: add matched known tech skills from COMMON_SKILLS
+    if custom_skill_list:
+        matcher = PhraseMatcher(nlp.vocab, attr="LOWER")
+        patterns = [nlp.make_doc(skill) for skill in custom_skill_list]
+        matcher.add("TECH_SKILLS", patterns)
+        matches = matcher(doc)
+        known_matches = {doc[start:end].text for _, start, end in matches}
+        cleaned_skills = cleaned_skills.union(known_matches)
+
+    return sorted(cleaned_skills)
 
 def clean_and_lemmatize(text):
     text = re.sub(r"[^a-zA-Z\s]", "", text)
@@ -21,16 +56,16 @@ def clean_and_lemmatize(text):
         if token.is_alpha and token.lemma_ not in stop_words and not token.is_stop
     ])
 
-def extract_skills(text):
-    doc = nlp(text)
-    skills = set()
-    for chunk in doc.noun_chunks:
-        if 1 <= len(chunk.text.split()) <= 3:
-            skills.add(chunk.text.lower())
-    for ent in doc.ents:
-        if ent.label_ in ["ORG", "PRODUCT", "SKILL"]:
-            skills.add(ent.text.lower())
-    return list(skills)
+# def extract_skills(text):
+#     doc = nlp(text)
+#     skills = set()
+#     for chunk in doc.noun_chunks:
+#         if 1 <= len(chunk.text.split()) <= 3:
+#             skills.add(chunk.text.lower())
+#     for ent in doc.ents:
+#         if ent.label_ in ["ORG", "PRODUCT", "SKILL"]:
+#             skills.add(ent.text.lower())
+#     return list(skills)
 
 def get_ats_score(resume, jd):
     if not resume.strip() or not jd.strip():
@@ -67,8 +102,8 @@ def main():
         print(json.dumps({"error": "Missing input"}))
         sys.exit(1)
 
-    resume_skills = extract_skills(resume_text)
-    jd_skills = extract_skills(jd_text)
+    resume_skills = extract_skills(resume_text, COMMON_SKILLS)
+    jd_skills = extract_skills(jd_text, COMMON_SKILLS)
     matched_skills = list(set(resume_skills) & set(jd_skills))
     skill_match_score = round(len(matched_skills) / len(jd_skills) * 100) if jd_skills else 0
 

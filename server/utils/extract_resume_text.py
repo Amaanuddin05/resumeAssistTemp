@@ -36,4 +36,7 @@ def extract_text_from_pdf(file_path):
 
 if __name__ == "__main__":
     pdf_path = sys.argv[1]
-    print(extract_text_from_pdf(pdf_path))
+    cleaned = extract_text_from_pdf(pdf_path)
+    print(cleaned)  # stdout (for Node.js to capture)
+    with open("extracted_resume.txt", "w", encoding="utf-8") as f:
+        f.write(cleaned)  # file saved from Python too (optional)

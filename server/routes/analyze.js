@@ -77,7 +77,7 @@ router.post('/', upload.single('resume'), async (req, res) => {
     console.log('Resume file received:', file.filename);
     try {
       const parsedText = await extractTextFromPDF(file.path);
-      fs.writeFileSync('extracted_resume.txt', parsedText);
+      // fs.writeFileSync('extracted_resume.txt', parsedText);
       console.log('Resume text preview:', parsedText.slice(0, 300));
       if (!parsedText || parsedText.trim().split(/\s+/).length < 10) {
         return res.status(400).json({ error: 'Resume text too short or empty.' });
