@@ -87,15 +87,7 @@ router.post('/', upload.single('resume'), async (req, res) => {
 
       // ML scoring
       const scoringResult = await runScoringScript(parsedText, jobDescription);
-      res.json({
-        atsScore: scoringResult.ats_score,
-        keywordMatch: scoringResult.keyword_match,
-        readability: scoringResult.readability,
-        skillMatchScore: scoringResult.skill_match_score,
-        matchedSkills: scoringResult.matched_skills,
-        resumeSkills: scoringResult.resume_skills,
-        jdSkills: scoringResult.jd_skills
-      });
+      res.json(scoringResult);
     } catch (err) {
       console.error('Error:', err);
       res.status(500).json({ error: err.message || 'Failed to process resume.' });
