@@ -1,72 +1,221 @@
-<nav class="bg-white shadow-sm border-b sticky top-0 z-50">
+<nav class="bg-white/80 backdrop-blur-lg shadow-lg border-b border-gray-200/50 sticky top-0 z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16">
       <!-- Logo and Brand -->
       <div class="flex items-center">
-        <a routerLink="/" class="flex items-center space-x-2">
-          <div class="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-700 rounded-lg flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
-            </svg>
+        <a routerLink="/" class="group flex items-center space-x-3 transition-all duration-300 hover:scale-105">
+          <!-- Animated Logo -->
+          <div class="relative">
+            <div class="w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-3">
+              <svg class="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <!-- Animated Ring -->
+            <div class="absolute inset-0 rounded-xl border-2 border-blue-400 opacity-0 group-hover:opacity-30 group-hover:animate-ping transition-opacity duration-300"></div>
           </div>
-          <span class="text-xl font-bold text-gray-800">ResumeAI</span>
+          
+          <!-- Brand Name with Gradient -->
+          <div class="flex items-center">
+            <span class="text-xl font-black text-gray-800 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+              Resume<span class="text-blue-600">AI</span>
+            </span>
+            <!-- Animated Dot -->
+            <div class="w-2 h-2 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full ml-1 animate-pulse"></div>
+          </div>
         </a>
       </div>
 
       <!-- Navigation Links -->
-      <div class="hidden md:flex items-center space-x-8">
+      <div class="hidden md:flex items-center space-x-1">
         <a 
           routerLink="/" 
-          routerLinkActive="text-blue-600 border-blue-600" 
+          routerLinkActive="text-blue-600 bg-blue-50 border-blue-600" 
           [routerLinkActiveOptions]="{exact: true}"
-          class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium border-b-2 border-transparent transition-colors duration-200"
+          class="group relative text-gray-600 hover:text-blue-600 px-4 py-2 text-sm font-semibold rounded-lg border-2 border-transparent transition-all duration-300 hover:bg-blue-50 hover:border-blue-200"
         >
-          Home
+          <span class="flex items-center">
+            <svg class="w-4 h-4 mr-2 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            Home
+          </span>
+          <!-- Animated Underline -->
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
         </a>
+        
         <a 
           routerLink="/upload" 
-          routerLinkActive="text-blue-600 border-blue-600"
-          class="text-gray-600 hover:text-blue-600 px-3 py-2 text-sm font-medium border-b-2 border-transparent transition-colors duration-200"
+          routerLinkActive="text-blue-600 bg-blue-50 border-blue-600"
+          class="group relative text-gray-600 hover:text-blue-600 px-4 py-2 text-sm font-semibold rounded-lg border-2 border-transparent transition-all duration-300 hover:bg-blue-50 hover:border-blue-200"
         >
-          Upload Resume
+          <span class="flex items-center">
+            <svg class="w-4 h-4 mr-2 group-hover:scale-110 group-hover:rotate-12 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+            </svg>
+            Upload Resume
+          </span>
+          <!-- Animated Underline -->
+          <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
         </a>
+
+        <!-- CTA Button -->
+        
       </div>
 
       <!-- Mobile menu button -->
       <div class="md:hidden">
         <button 
           type="button" 
-          class="text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+          class="group relative text-gray-600 hover:text-gray-900 focus:outline-none focus:text-gray-900 p-2 rounded-lg transition-all duration-300 hover:bg-gray-100"
           (click)="toggleMobileMenu()"
         >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+          <!-- Hamburger Icon with Animation -->
+          <div class="w-6 h-6 flex flex-col justify-center items-center">
+            <span class="block w-5 h-0.5 bg-current transition-all duration-300 transform" 
+                  [class.rotate-45]="isMobileMenuOpen" 
+                  [class.translate-y-1]="isMobileMenuOpen"></span>
+            <span class="block w-5 h-0.5 bg-current mt-1 transition-all duration-300" 
+                  [class.opacity-0]="isMobileMenuOpen"></span>
+            <span class="block w-5 h-0.5 bg-current mt-1 transition-all duration-300 transform" 
+                  [class.-rotate-45]="isMobileMenuOpen" 
+                  [class.-translate-y-1]="isMobileMenuOpen"></span>
+          </div>
         </button>
       </div>
     </div>
 
-    <!-- Mobile menu -->
-    <div *ngIf="isMobileMenuOpen" class="md:hidden">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t">
+    <!-- Mobile menu with slide animation -->
+    <div 
+      class="md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+      [class.max-h-0]="!isMobileMenuOpen"
+      [class.max-h-96]="isMobileMenuOpen"
+      [class.opacity-0]="!isMobileMenuOpen"
+      [class.opacity-100]="isMobileMenuOpen"
+    >
+      <div class="px-2 pt-2 pb-4 space-y-2 sm:px-3 border-t border-gray-200/50 bg-white/50 backdrop-blur-sm">
         <a 
           routerLink="/" 
-          routerLinkActive="bg-blue-50 text-blue-600" 
+          routerLinkActive="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 border-l-4 border-blue-500" 
           [routerLinkActiveOptions]="{exact: true}"
-          class="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200"
+          class="group flex items-center text-gray-600 hover:text-blue-600 hover:bg-gray-50 px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 transform hover:translate-x-2"
           (click)="closeMobileMenu()"
         >
+          <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
           Home
         </a>
+        
         <a 
           routerLink="/upload" 
-          routerLinkActive="bg-blue-50 text-blue-600"
-          class="text-gray-600 hover:text-blue-600 block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200"
+          routerLinkActive="bg-gradient-to-r from-blue-50 to-purple-50 text-blue-600 border-l-4 border-blue-500"
+          class="group flex items-center text-gray-600 hover:text-blue-600 hover:bg-gray-50 px-4 py-3 text-base font-medium rounded-lg transition-all duration-300 transform hover:translate-x-2"
           (click)="closeMobileMenu()"
         >
+          <svg class="w-5 h-5 mr-3 group-hover:scale-110 group-hover:rotate-12 transition-all duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+          </svg>
           Upload Resume
         </a>
+
+        <!-- Mobile CTA Button -->
+        <div class="pt-4 border-t border-gray-200">
+          <button 
+            routerLink="/upload"
+            class="group w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-6 py-3 rounded-lg font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+            (click)="closeMobileMenu()"
+          >
+            <span class="flex items-center justify-center">
+              <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              Get Started
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </nav>
+
+<!-- Additional Custom Styles -->
+<style>
+/* Enhanced backdrop blur support */
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Smooth navbar scroll effect */
+.navbar-scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+}
+
+/* Enhanced gradient animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Mobile menu animations */
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-menu-item {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.mobile-menu-item:nth-child(1) { animation-delay: 0.1s; }
+.mobile-menu-item:nth-child(2) { animation-delay: 0.2s; }
+.mobile-menu-item:nth-child(3) { animation-delay: 0.3s; }
+
+/* Hover glow effect */
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Active link pulse effect */
+.active-link {
+  animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>

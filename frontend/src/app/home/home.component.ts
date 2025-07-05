@@ -41,13 +41,13 @@ export class HomeComponent implements OnInit {
   }
 
   private setSampleData() {
-    const sampleData: ResumeData = {
-      resumeTitle: 'Software Engineer Resume.pdf',
-      atsScore: 85,
-      uploadedDate: '2024-01-15',
-      thumbnailURL: undefined
-    };
-    localStorage.setItem('lastScannedResume', JSON.stringify(sampleData));
-    this.lastScannedResume = sampleData;
+    // const sampleData: ResumeData = {
+    //   resumeTitle: 'Software Engineer Resume.pdf',
+    //   atsScore: 85,
+    //   uploadedDate: '2024-01-15',
+    //   thumbnailURL: undefined
+    // };
+    // localStorage.setItem('lastScannedResume', JSON.stringify(sampleData));
+    // this.lastScannedResume = sampleData;
   }
 }
