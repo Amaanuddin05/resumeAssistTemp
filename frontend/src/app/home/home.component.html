@@ -54,138 +54,130 @@
   <div class="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-full opacity-20 animate-float-delayed"></div>
 </section>
 
-<!-- Last Scanned Resume Section -->
+<!-- Resume Cards Grid -->
+<!-- Resume Scan History -->
 <section class="bg-slate-50 py-16">
   <div class="container mx-auto px-4">
     <div class="max-w-4xl mx-auto">
+
       <!-- Section Header -->
       <div class="mb-12 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Last Scanned Resume
+          Resume Scan History
         </h2>
         <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
       </div>
 
-      <!-- Resume Card -->
-      <div *ngIf="lastScannedResume; else noResume" 
-           class="bg-white shadow-xl rounded-2xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in-up">
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-          <!-- Left Section -->
-          <div class="flex items-center space-x-6 flex-1">
-            <!-- Resume Thumbnail with Glow Effect -->
-            <div class="relative">
-              <div class="w-20 h-24 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-2 border-blue-200 flex items-center justify-center shadow-lg">
-                <svg class="w-10 h-10 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <!-- Animated Ring -->
-              <div class="absolute inset-0 rounded-lg border-2 border-blue-400 animate-ping opacity-20"></div>
-            </div>
-            
-            <!-- Resume Details -->
-            <div class="flex-1">
-              <h3 class="text-xl font-bold text-gray-800 mb-2">{{ lastScannedResume.resumeTitle }}</h3>
-              <p class="text-gray-600 mb-1">
-                <span class="inline-flex items-center">
-                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
-                  </svg>
-                  Uploaded: {{ lastScannedResume.uploadedDate }}
-                </span>
-              </p>
-              <div class="flex items-center space-x-2">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
-                  <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                  </svg>
-                  Ready for Review
-                </span>
-              </div>
-            </div>
-          </div>
+      @if (scanHistory.length > 0) {
+        @for (scan of scanHistory; track scan.date) {
+          <div class="bg-white shadow-xl rounded-2xl p-6 md:p-8 mb-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in-up w-full">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 w-full">
 
-          <!-- Right Section -->
-          <div class="flex items-center space-x-6">
-            <!-- ATS Score with Circular Progress -->
-            <div class="text-center">
-              <div class="relative w-24 h-24 mx-auto mb-2">
-                <svg class="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
-                  <!-- Background circle -->
-                  <circle cx="50" cy="50" r="40" stroke="#e5e7eb" stroke-width="8" fill="none"></circle>
-                  <!-- Progress circle -->
-                  <circle 
-                    cx="50" 
-                    cy="50" 
-                    r="40" 
-                    stroke="#10b981" 
-                    stroke-width="8" 
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-dasharray="251.2"
-                    [attr.stroke-dashoffset]="251.2 - (251.2 * lastScannedResume.atsScore / 100)"
-                    class="transition-all duration-1000 ease-out"
-                    style="animation: draw-circle 2s ease-out;">
-                  </circle>
-                </svg>
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <div class="text-center">
-                    <div class="text-2xl font-bold text-green-600">{{ lastScannedResume.atsScore }}%</div>
+              <!-- Left -->
+              <div class="flex items-start space-x-4 flex-1 min-w-0">
+                <!-- Icon -->
+                <div class="relative flex-shrink-0">
+                  <div class="w-16 h-20 sm:w-20 sm:h-24 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-2 border-blue-200 flex items-center justify-center shadow-lg">
+                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                    </svg>
                   </div>
+                  <div class="absolute inset-0 rounded-lg border-2 border-blue-400 animate-ping opacity-20"></div>
+                </div>
+
+                <!-- Info -->
+                <div class="flex-1 min-w-0">
+                  <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-1 truncate">
+                    {{ scan.resumeName }}
+                  </h3>
+                  <p class="text-gray-600 text-sm truncate">
+                    <svg class="inline w-4 h-4 mr-1 text-gray-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                    </svg>
+                    Uploaded: {{ scan.date | date:'medium' }}
+                  </p>
+                  <span class="inline-flex items-center mt-2 px-3 py-1 rounded-full text-xs sm:text-sm font-medium bg-green-100 text-green-800">
+                    <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    Ready for Review
+                  </span>
                 </div>
               </div>
-              <div class="text-sm font-medium text-gray-600">ATS Score</div>
-            </div>
-            
-            <!-- View Results Button -->
-            <button
-              routerLink="/results"
-              class="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
-              <span class="flex items-center">
-                View Results
-                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                </svg>
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
 
-      <!-- No Resume Template -->
-      <ng-template #noResume>
-        <div class="bg-white border-2 border-dashed border-gray-300 rounded-2xl p-12 text-center hover:border-gray-400 transition-colors duration-300 animate-fade-in-up">
-          <!-- Animated Icon -->
-          <div class="relative mb-8">
-            <div class="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-12 h-12 text-gray-400 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
-              </svg>
+              <!-- Right -->
+              <div class="flex items-center justify-between md:justify-center w-full md:w-auto space-x-4">
+                <!-- Score -->
+                <div class="text-center">
+                  <div class="relative w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-2">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" stroke="#e5e7eb" stroke-width="8" fill="none" />
+                      <circle 
+                        cx="50" cy="50" r="40"
+                        stroke="#10b981" stroke-width="8" fill="none"
+                        stroke-linecap="round"
+                        stroke-dasharray="251.2"
+                        [attr.stroke-dashoffset]="251.2 - (251.2 * scan.resume_score / 100)"
+                        class="transition-all duration-1000 ease-out"
+                      />
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <span class="text-lg font-bold text-green-600">{{ scan.resume_score }}%</span>
+                    </div>
+                  </div>
+                  <p class="text-xs text-gray-600">ATS Score</p>
+                </div>
+
+                <!-- View Button -->
+                <button
+                  (click)="viewScan(scan)"
+                  routerLink="/report"
+                  class="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-5 py-2 sm:px-6 sm:py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                >
+                  <span class="flex items-center">
+                    View Results
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
+                </button>
+              </div>
             </div>
-            <!-- Pulsing Ring -->
-            <!-- <div class="absolute inset-0 rounded-full border-4 border-gray-300 animate-ping opacity-20"></div> -->
           </div>
-          
+        }
+      } @else {
+        <div class="bg-white border-2 border-dashed border-gray-300 rounded-2xl p-12 text-center animate-fade-in-up">
+          <div class="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-12 h-12 text-gray-400 animate-bounce" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+            </svg>
+          </div>
           <h3 class="text-2xl font-bold text-gray-800 mb-4">No Resume Scanned Yet</h3>
           <p class="text-gray-600 mb-8 max-w-md mx-auto leading-relaxed">
-            Upload your first resume to get started with AI-powered feedback and optimization suggestions
+            Upload your first resume to get started with AI-powered feedback and optimization suggestions.
           </p>
-          
           <button
             routerLink="/upload"
-            class="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+            class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
             <span class="flex items-center justify-center">
               <svg class="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
               </svg>
-              Upload Your First Resume
+              Upload Resume
             </span>
           </button>
         </div>
-      </ng-template>
+      }
     </div>
   </div>
 </section>
+
+
+
+
+
+
 
 <!-- Custom Animations Styles -->
 <style>

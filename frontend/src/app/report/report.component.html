@@ -25,7 +25,11 @@
           
           <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 print:bg-gray-50">
             <div class="text-gray-700 text-lg mb-2">
-              <span class="font-semibold text-gray-800">Job Title:</span> 
+              <span class="font-semibold text-gray-800">Resume Name: </span> 
+              <span class="font-bold text-blue-600">{{ resumeName }}</span>
+            </div>
+            <div class="text-gray-700 text-lg mb-2">
+              <span class="font-semibold text-gray-800">Job Title: </span> 
               <span class="font-bold text-blue-600">{{ jobTitle }}</span>
             </div>
             <div class="text-gray-500 text-sm">
@@ -59,11 +63,11 @@
                 </div>
               </div>
               <div class="text-center">
-                <div class="text-4xl font-bold text-gray-800 mb-2">{{ atsScore }}%</div>
-                <div class="text-gray-600 font-semibold mb-3">ATS Score</div>
+                <div class="text-4xl font-bold text-gray-800 mb-2">{{ resumeScore }}%</div>
+                <div class="text-gray-600 font-semibold mb-3">Resume Score</div>
                 <div class="w-full bg-gray-200 rounded-full h-3">
                   <div class="bg-gradient-to-r from-emerald-500 to-teal-600 h-3 rounded-full transition-all duration-1000 print:bg-gray-600" 
-                       [style.width.%]="atsScore"></div>
+                       [style.width.%]="resumeScore"></div>
                 </div>
               </div>
             </div>
@@ -78,11 +82,11 @@
                 </div>
               </div>
               <div class="text-center">
-                <div class="text-4xl font-bold text-gray-800 mb-2">{{ keywordMatch }}%</div>
-                <div class="text-gray-600 font-semibold mb-3">Keyword Match</div>
+                <div class="text-4xl font-bold text-gray-800 mb-2">{{ skillsMatch }}%</div>
+                <div class="text-gray-600 font-semibold mb-3">Skills Match</div>
                 <div class="w-full bg-gray-200 rounded-full h-3">
                   <div class="bg-gradient-to-r from-blue-500 to-indigo-600 h-3 rounded-full transition-all duration-1000 print:bg-gray-600" 
-                       [style.width.%]="keywordMatch"></div>
+                       [style.width.%]="skillsMatch"></div>
                 </div>
               </div>
             </div>
@@ -97,8 +101,8 @@
                 </div>
               </div>
               <div class="text-center">
-                <div class="text-4xl font-bold text-gray-800 mb-2">{{ readability }}</div>
-                <div class="text-gray-600 font-semibold mb-3">Readability</div>
+                <div class="text-4xl font-bold text-gray-800 mb-2">{{ aiAtsScore }}</div>
+                <div class="text-gray-600 font-semibold mb-3">AI ATS Score</div>
                 <div class="w-full bg-gray-200 rounded-full h-3">
                   <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3 rounded-full transition-all duration-1000 print:bg-gray-600" 
                        style="width: 85%"></div>

@@ -18,36 +18,14 @@ interface ResumeData {
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  lastScannedResume: ResumeData | null = null;
+  scanHistory: any[] = []
 
   ngOnInit() {
-    this.loadLastScannedResume();
-    // For demo purposes, set sample data if none exists
-    if (!this.lastScannedResume) {
-      this.setSampleData();
-    }
+    const history = localStorage.getItem('scanHistory');
+    this.scanHistory = history ? JSON.parse(history).reverse() : [];
   }
 
-  private loadLastScannedResume() {
-    const resumeData = localStorage.getItem('lastScannedResume');
-    if (resumeData) {
-      try {
-        this.lastScannedResume = JSON.parse(resumeData);
-      } catch (error) {
-        console.error('Error parsing last scanned resume data:', error);
-        this.lastScannedResume = null;
-      }
-    }
-  }
-
-  private setSampleData() {
-    // const sampleData: ResumeData = {
-    //   resumeTitle: 'Software Engineer Resume.pdf',
-    //   atsScore: 85,
-    //   uploadedDate: '2024-01-15',
-    //   thumbnailURL: undefined
-    // };
-    // localStorage.setItem('lastScannedResume', JSON.stringify(sampleData));
-    // this.lastScannedResume = sampleData;
+  viewScan(scan: any) {
+    localStorage.setItem('lastScan', JSON.stringify(scan));
   }
 }

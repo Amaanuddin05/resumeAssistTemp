@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-upload',
@@ -17,7 +18,10 @@ export class UploadComponent {
   resumeFile: File | null = null;
   isDragOver: boolean = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private http: HttpClient
+  ) {}
 
   handleFileInput(event: any) {
     const file = event.target.files[0];
@@ -74,12 +78,36 @@ export class UploadComponent {
       alert('Please complete all fields and upload a resume.');
       return;
     }
-    // TODO: Send data to backend and navigate to /analyze
-    console.log('Submitting:', {
-      jobTitle: this.jobTitle,
-      jobDescription: this.jobDescription,
-      file: this.resumeFile
+
+    const formData = new FormData();
+    formData.append('resume', this.resumeFile as Blob);
+    formData.append('jobTitle', this.jobTitle);
+    formData.append('jobDescription', this.jobDescription);
+
+    this.http.post('http://localhost:5000/analyze', formData).subscribe({
+      next: (response: any) => {
+        const scanData = {
+          ...response,
+          job_title: this.jobTitle,
+          job_description: this.jobDescription,
+          resumeName: this.resumeFile?.name,
+          date: new Date().toISOString()
+        };
+
+        // Store as last scan
+        localStorage.setItem('lastScan', JSON.stringify(scanData));
+
+        // Store in history
+        const history = JSON.parse(localStorage.getItem('scanHistory') || '[]');
+        history.push(scanData);
+        localStorage.setItem('scanHistory', JSON.stringify(history));
+
+        this.router.navigate(['/analyze']);
+      },
+      error: (error) => {
+        console.error('Upload failed:', error);
+        alert('Something went wrong. Please try again.');
+      },
     });
-    this.router.navigate(['/analyze']);
   }
 }

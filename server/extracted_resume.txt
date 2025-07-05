@@ -1,50 +1,51 @@
-Md Amaanuddin +91 6200618369 | # amaanuddin0501@gmail.com | LinkedIn | GitHub
+Kanhaiya Agarwal
++91 7050873964 | Kanhaiyaag964@gmail.com | LinkedIn | GitHub
+PROFESSIONAL SUMMARY
+Enthusiastic and motivated Web Developer with hands-on experience in building responsive websites and web applications
+using HTML, CSS, JavaScript and React.js.
+Familiar with best practices for front-end development and basic back-end
+integration using MySQL.
+Eager to contribute to team success through hard work, attention to detail, and a passion for
+learning new technologies.
+Looking to grow in a collaborative environment where I can expand my development skills and
+contribute to real-world projects.
 TECHNICAL SKILLS
-• Frontend Development: Angular, Tailwind CSS, Bootstrap, HTML5, CSS3
-• Backend Development: Node.js, Express.js, RESTful APIs, JWT Authentication
-• Database: MySQL, MongoDB
-• Programming Languages: Java, Python, C
-PROJECTS
-Penndora - AI Powered Blogging Platform
-Feb 2025 Apr 2025
-Full Stack Web Development Project
-Angular, Express.js, Firebase
-• Created a full-stack blogging platform supporting 100+ users with AI-powered content tools using the Gemini API.
-• Enhanced user engagement by 60% with real-time grammar suggestions and writing feedback.
-• Implemented secure, session-based login via Firebase Authentication, reducing unauthorized access attempts to zero.
-• Launched the app as a responsive PWA via Firebase Hosting and Render, ensuring 99.9% uptime.
-InsightED
-Dec 2023 Feb 2024
-Faculty Management System
-HTML, CSS, JavaScript, Express.js, MongoDB
-• Engineered a faculty management system with role-based access, streamlining administrative workows and user management.
-• Implemented JWT-based authentication and authorization, ensuring 100% secure user data and access control.
-• Developed 10+ REST APIs with Node.js and Express.js, optimizing data ow and interaction between users and the system.
-EXPERIENCE
-Web Development Intern
-Mar 2024 Apr 2024
-CodSoft
-Remote
-• Crafted a responsive restaurant landing page using HTML, CSS, and JavaScript with a focus on mobile-rst design.
-• Built a personal portfolio website to display projects, skills, and certications.
-• Applied UI/UX principles to enhance the visual design and usability of the website, ensuring smooth cross-device compatibility
-and improving overall site performance.
+Frontend Development: HTML5 , CSS3 , JavaScript
+Database: MySQL
+Programming Languages: C , Java
 EDUCATION
 RVS College of Engineering and Technology
-Oct 2022 May 2026
-Bachelor of Technology in Computer Science and Engineering | CGPA: 8.63/10
-Jamshedpur, Jharkhand, India
-Karim City College
-Jun 2020 Jun 2022
-Higher Secondary School (Science) | Percentage: 83.80%
-Jamshedpur, Jharkhand, India
-ACHIEVEMENTS
-• Ranked 4th out of 120+ teams at InnovateX 4.0 hackathon organized by GIET Bhubaneswar, where I led a team to develop an
-innovative solution under tight deadlines.
-(April 2025)
-• Placed 16th out of 150+ teams at Hack Horizon 2025 hackathon organized by AJU, focusing on delivering a high-impact project
-with a focus on scalable solutions.
-(April 2025)
+Jamshedpur, Jharkhand
+Bachelor of Technology in Computer Science and Engineering
+August 2022 May 2026
+St.
+Josephs Convent High School
+Musabani, Jharkhand
+Higher Secondary School
+April 2020 April 2022
+PROJECTS
+PGLife - A Smarter Accomodation web application
+July 2024 August 2024
+Full Stack Web Development Project
+JavaScript , React.js
+• Designed and developed a responsive web platform enabling students to search, lter, and book PG accommodations across
+multiple cities.
+• Implemented a secure user authentication system using session-based login, which enhanced data privacy and improved user
+retention by 25% through a more personalized experience across the platform.
+• Engineered the backend using PHP and MySQL to handle data operations, including CRUD functionalities for users, properties,
+and bookings.
+• Optimized database queries and frontend assets, reducing page load time and improving performance by 60%.
+EXPERIENCE
+Web Development Training
+July 2024 August 2024
+Internshala
+Remote
+• Crafted and built responsive user interfaces using React.js, HTML5, and CSS3, providing a seamless experience across devices
+and screen sizes.
+• Developed mobile-rst UI design using Bootstrap and CSS media queries to ensure seamless experience across smartphones
+and tablets.
+• Implemented modular architecture across frontend and backend systems, reducing code duplication by 25% and improving code
+maintainability; reduced debugging time by 20 hours weekly.
 CERTIFICATIONS
-• NPTEL - Problem Solving Through Programming in C, Programming in Java, Data Base Management System
-• Internshala - Angular
+• NPTEL - Problem Solving Through Programming in C , Programming in Java , DSA in Java , Data Base Management System.
+• Internshala Trainings - Web Development
