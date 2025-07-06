@@ -16,19 +16,22 @@ export class AnalyzeComponent implements OnInit {
   aiATSScore: string = "WIP";
   resumeName!: string;
   date!: string;
+  // suggestions = {
+  //   summary: [
+  //     'Work in progress',
+  //     'Add a professional summary at the top of your resume.',
+  //     'Highlight your years of experience and key skills.'
+  //   ],
+  //   experience: [
+  //     'Work in progress',
+  //     'Use more action verbs to describe your achievements.',
+  //     'Quantify your impact with numbers where possible.',
+  //     'Tailor your experience to match the job description.'
+  //   ]
+  // };
   suggestions = {
-    summary: [
-      'Work in progress',
-      'Add a professional summary at the top of your resume.',
-      'Highlight your years of experience and key skills.'
-    ],
-    experience: [
-      'Work in progress',
-      'Use more action verbs to describe your achievements.',
-      'Quantify your impact with numbers where possible.',
-      'Tailor your experience to match the job description.'
-    ]
-  };
+    summary: [],experience: []
+  }
 
   constructor(
     private router: Router
@@ -46,8 +49,8 @@ export class AnalyzeComponent implements OnInit {
       this.resumeName = result.resumeName ?? 'Resume.pdf'
       this.date = result.date ? new Date(result.date).toLocaleDateString() : ''
 
-      // this.suggestions.summary = result.education_suggestions ?? [];
-      // this.suggestions.experience = result.experience_suggestions ?? [];
+      this.suggestions.summary = result.education_suggestions ?? [];
+      this.suggestions.experience = result.experience_suggestions ?? [];
 
       // Save to history if not already there
       const history = JSON.parse(localStorage.getItem('scanHistory') || '[]');

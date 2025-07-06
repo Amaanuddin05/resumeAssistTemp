@@ -1,51 +1,5 @@
-Kanhaiya Agarwal
-+91 7050873964 | Kanhaiyaag964@gmail.com | LinkedIn | GitHub
-PROFESSIONAL SUMMARY
-Enthusiastic and motivated Web Developer with hands-on experience in building responsive websites and web applications
-using HTML, CSS, JavaScript and React.js.
-Familiar with best practices for front-end development and basic back-end
-integration using MySQL.
-Eager to contribute to team success through hard work, attention to detail, and a passion for
-learning new technologies.
-Looking to grow in a collaborative environment where I can expand my development skills and
-contribute to real-world projects.
-TECHNICAL SKILLS
-Frontend Development: HTML5 , CSS3 , JavaScript
-Database: MySQL
-Programming Languages: C , Java
-EDUCATION
-RVS College of Engineering and Technology
-Jamshedpur, Jharkhand
-Bachelor of Technology in Computer Science and Engineering
-August 2022 May 2026
-St.
-Josephs Convent High School
-Musabani, Jharkhand
-Higher Secondary School
-April 2020 April 2022
-PROJECTS
-PGLife - A Smarter Accomodation web application
-July 2024 August 2024
-Full Stack Web Development Project
-JavaScript , React.js
-• Designed and developed a responsive web platform enabling students to search, lter, and book PG accommodations across
-multiple cities.
-• Implemented a secure user authentication system using session-based login, which enhanced data privacy and improved user
-retention by 25% through a more personalized experience across the platform.
-• Engineered the backend using PHP and MySQL to handle data operations, including CRUD functionalities for users, properties,
-and bookings.
-• Optimized database queries and frontend assets, reducing page load time and improving performance by 60%.
-EXPERIENCE
-Web Development Training
-July 2024 August 2024
-Internshala
-Remote
-• Crafted and built responsive user interfaces using React.js, HTML5, and CSS3, providing a seamless experience across devices
-and screen sizes.
-• Developed mobile-rst UI design using Bootstrap and CSS media queries to ensure seamless experience across smartphones
-and tablets.
-• Implemented modular architecture across frontend and backend systems, reducing code duplication by 25% and improving code
-maintainability; reduced debugging time by 20 hours weekly.
-CERTIFICATIONS
-• NPTEL - Problem Solving Through Programming in C , Programming in Java , DSA in Java , Data Base Management System.
-• Internshala Trainings - Web Development
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
